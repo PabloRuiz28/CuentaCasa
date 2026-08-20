@@ -1,14 +1,14 @@
-import { View } from "react-native";
-import { Button, PaperProvider, Text } from "react-native-paper";
+import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import { PaperProvider } from "react-native-paper";
+import { AuthProvider } from "../../features/auth/context/AuthContext";
 
-export const AppProviders = () => {
+export const AppProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <PaperProvider>
-      <View>
-        <Text>Hola Mundo - React Native Paper</Text>
-
-        <Button mode="contained">Click me!</Button>
-      </View>
+      <AuthProvider>
+        <NavigationContainer>{children}</NavigationContainer>
+      </AuthProvider>
     </PaperProvider>
   );
 };
