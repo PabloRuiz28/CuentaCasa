@@ -1,22 +1,26 @@
-import { View } from "react-native";
-import { Button, Text } from "react-native-paper";
-import { useAuth } from "../context/AuthContext";
+import { StyleSheet, View } from "react-native";
+import { Divider, useTheme } from "react-native-paper";
+import { Form } from "../components/signin/Form";
+import { Header } from "../components/signin/Header";
+import { Footer } from "../components/signin/Footer";
 
 export const SignInScreen = () => {
-  const { signIn } = useAuth();
+  const { colors } = useTheme();
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 16,
-      }}
-    >
-      <Text>SignInScreen</Text>
+    <View style={styles.container}>
+      <Header />
+      <Form />
 
-      <Button onPress={signIn}>Tabs</Button>
+      <Divider />
+      <Footer />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+});
