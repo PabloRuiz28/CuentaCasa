@@ -1,4 +1,4 @@
-import { StyleProp, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Text } from "react-native-paper";
 
 export const Header = () => {
@@ -15,9 +15,8 @@ export const Header = () => {
 const styles = StyleSheet.create({
   header: {
     flex: 3,
-    justifyContent: "center",
+    justifyContent: "flex-end",
     alignItems: "center",
     gap: 8,
-    // backgroundColor: "red",
   },
 });

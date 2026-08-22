@@ -1,26 +1,26 @@
-import { StyleSheet, View } from "react-native";
-import { Divider, useTheme } from "react-native-paper";
+import { Divider } from "react-native-paper";
+import { Screen } from "../../../shared/components/Screen";
+import { Footer } from "../components/signin/Footer";
 import { Form } from "../components/signin/Form";
 import { Header } from "../components/signin/Header";
-import { Footer } from "../components/signin/Footer";
+import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
 
 export const SignInScreen = () => {
-  const { colors } = useTheme();
-
   return (
-    <View style={styles.container}>
-      <Header />
-      <Form />
-
-      <Divider />
-      <Footer />
-    </View>
+    <Screen>
+      <KeyboardAwareScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: "center",
+          gap: 16,
+        }}
+        showsVerticalScrollIndicator={false}
+      >
+        <Header />
+        <Form />
+        <Divider />
+        <Footer />
+      </KeyboardAwareScrollView>
+    </Screen>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-});

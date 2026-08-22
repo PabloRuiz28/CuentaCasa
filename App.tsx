@@ -1,13 +1,16 @@
-import { SafeAreaView } from "react-native-safe-area-context";
-import { AppProviders } from "./src/app/providers/AppProviders";
+import {
+  SafeAreaProvider,
+  initialWindowMetrics,
+} from "react-native-safe-area-context";
 import { RootNavigator } from "./src/app/navigation/RootNavigator";
+import { AppProviders } from "./src/app/providers/AppProviders";
 
 export default function App() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <AppProviders>
         <RootNavigator />
       </AppProviders>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }

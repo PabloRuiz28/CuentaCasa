@@ -12,7 +12,8 @@ export const Form = () => {
         <TextInput
           mode="outlined"
           placeholder="ejemplo@correo.com"
-          outlineStyle={{ height: 65, borderRadius: 20 }}
+          style={{ height: 65 }}
+          outlineStyle={{ borderRadius: 20 }}
           left={
             <TextInput.Icon
               icon={require("../../../../../assets/icons/alternate_email.png")}
@@ -27,7 +28,8 @@ export const Form = () => {
           mode="outlined"
           secureTextEntry
           placeholder="********"
-          outlineStyle={{ height: 65, borderRadius: 20 }}
+          style={{ height: 65 }}
+          outlineStyle={{ borderRadius: 20 }}
           left={
             <TextInput.Icon
               icon={require("../../../../../assets/icons/lock.png")}
@@ -45,7 +47,12 @@ export const Form = () => {
         ¿Olvidaste tu contraseña?
       </Button>
 
-      <Button onPress={signIn} mode="contained">
+      <Button
+        style={{ borderRadius: 100 }}
+        contentStyle={{ height: 60 }}
+        onPress={signIn}
+        mode="contained"
+      >
         Iniciar Sesión
       </Button>
     </View>
@@ -56,7 +63,8 @@ const styles = StyleSheet.create({
   form: {
     flex: 5,
     gap: 32,
-    // backgroundColor: "yellow",
+    justifyContent: "center",
+    paddingVertical: 16,
   },
 
   forgetPassword: {
