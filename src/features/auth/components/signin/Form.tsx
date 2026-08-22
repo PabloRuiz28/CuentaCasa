@@ -61,9 +61,8 @@ export const Form = () => {
 
 const styles = StyleSheet.create({
   form: {
-    flex: 5,
+    flex: 1,
     gap: 32,
-    justifyContent: "center",
     paddingVertical: 16,
   },
 

@@ -1,9 +1,16 @@
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import { Text } from "react-native-paper";
+import { useResponsive } from "../../../../shared/hooks/useResponsive";
 
 export const Header = () => {
+  const { isLandscape } = useResponsive();
+
   return (
-    <View style={styles.header}>
+    <View
+      style={{
+        marginBottom: isLandscape ? 0 : 32,
+      }}
+    >
       <Text variant="headlineLarge">Bienvenido de nuevo</Text>
       <Text variant="titleMedium">
         Controla las finanzas de tu hogar en pareja
@@ -11,12 +18,3 @@ export const Header = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  header: {
-    flex: 3,
-    justifyContent: "flex-end",
-    alignItems: "center",
-    gap: 8,
-  },
-});
