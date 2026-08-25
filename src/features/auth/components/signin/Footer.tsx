@@ -1,11 +1,15 @@
 import { StyleSheet, View } from "react-native";
 import { Button, Text } from "react-native-paper";
 
-export const Footer = () => {
+type FooterProps = {
+  navigate: () => void;
+};
+
+export const Footer = ({ navigate }: FooterProps) => {
   return (
     <View style={styles.footer}>
       <Text>¿No tienes cuenta?</Text>
-      <Button onPress={() => {}}>Regístrate aquí</Button>
+      <Button onPress={navigate}>Regístrate aquí</Button>
     </View>
   );
 };

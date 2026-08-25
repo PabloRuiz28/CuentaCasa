@@ -49,7 +49,7 @@ export const Form = () => {
 
       <Button
         style={{ borderRadius: 100 }}
-        contentStyle={{ height: 60 }}
+        contentStyle={{ height: 55 }}
         onPress={signIn}
         mode="contained"
       >

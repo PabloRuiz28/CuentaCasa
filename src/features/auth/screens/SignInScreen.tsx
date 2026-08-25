@@ -1,13 +1,16 @@
+import { useNavigation } from "@react-navigation/native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
 import { Divider } from "react-native-paper";
 import { Screen } from "../../../shared/components/Screen";
+import { useResponsive } from "../../../shared/hooks/useResponsive";
 import { Footer } from "../components/signin/Footer";
 import { Form } from "../components/signin/Form";
 import { Header } from "../components/signin/Header";
-import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
-import { useResponsive } from "../../../shared/hooks/useResponsive";
 
 export const SignInScreen = () => {
   const { isTablet, isLandscape } = useResponsive();
+  const navigation = useNavigation();
+
   return (
     <Screen
       contentStyle={{
@@ -20,14 +23,17 @@ export const SignInScreen = () => {
         contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "center",
-          paddingVertical: 16,
         }}
         showsVerticalScrollIndicator={false}
       >
         <Header />
         <Form />
         <Divider />
-        <Footer />
+        <Footer
+          navigate={() =>
+            navigation.navigate("AuthPattern", { screen: "SignUp" })
+          }
+        />
       </KeyboardAwareScrollView>
     </Screen>
   );

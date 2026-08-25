@@ -23,7 +23,16 @@ export const Screen = ({
       edges={edges}
       style={[style, { flex: 1, backgroundColor: colors.background }]}
     >
-      <View style={[contentStyle, { flex: 1, paddingHorizontal: 16 }]}>
+      <View
+        style={[
+          contentStyle,
+          {
+            flex: 1,
+            paddingHorizontal: 16,
+            paddingTop: 32,
+          },
+        ]}
+      >
         {children}
       </View>
     </SafeAreaView>

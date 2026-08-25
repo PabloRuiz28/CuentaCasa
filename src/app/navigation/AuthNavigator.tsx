@@ -14,7 +14,7 @@ export const AuthNavigator = () => {
         component={SignInScreen}
       />
       <Stack.Screen
-        options={{ headerTitle: "Crear cuenta" }}
+        options={{ headerTitle: "" }}
         name="SignUp"
         component={SignUpScreen}
       />
