@@ -19,7 +19,7 @@ export const SignUpScreen = () => {
       }}
     >
       <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
-        <Text variant="headlineMedium" style={{ marginBottom: 24 }}>
+        <Text variant="headlineMedium" style={{ marginBottom: 32 }}>
           Registra tus datos para configurar tu hogar financiero
         </Text>
 

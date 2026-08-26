@@ -6,6 +6,7 @@ import { OptionCard } from "../components/homesetting/OptionCard";
 import { HOME_OPTIONS } from "../constants";
 import { IHomeSetting } from "../types";
 import { useResponsive } from "../../../shared/hooks/useResponsive";
+import { ScrollView, View } from "react-native";
 
 export const HomeSettingScreen = () => {
   const { isTablet, isLandscape } = useResponsive();
@@ -22,24 +23,28 @@ export const HomeSettingScreen = () => {
         margin: "auto",
       }}
     >
-      <Header />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Header />
 
-      {HOME_OPTIONS.map((setting) => (
-        <OptionCard
-          key={setting.homeType}
-          setting={setting}
-          isSelected={setting.homeType === settingSelected.homeType}
-          onSelect={setSettingSelected}
-        />
-      ))}
+        <View style={{ gap: 32 }}>
+          {HOME_OPTIONS.map((setting) => (
+            <OptionCard
+              key={setting.homeType}
+              setting={setting}
+              isSelected={setting.homeType === settingSelected.homeType}
+              onSelect={setSettingSelected}
+            />
+          ))}
+        </View>
 
-      <Button
-        style={{ borderRadius: 100, marginTop: 64 }}
-        contentStyle={{ height: 55 }}
-        mode="contained"
-      >
-        Continuar
-      </Button>
+        <Button
+          style={{ borderRadius: 100, marginTop: 64 }}
+          contentStyle={{ height: 55 }}
+          mode="contained"
+        >
+          Continuar
+        </Button>
+      </ScrollView>
     </Screen>
   );
 };

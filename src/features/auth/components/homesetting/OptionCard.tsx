@@ -19,6 +19,9 @@ export const OptionCard = ({
     <TouchableRipple
       onPress={() => onSelect(setting)}
       style={[
+        {
+          borderColor: colors.outline,
+        },
         styles.settingContainer,
         isSelected && {
           backgroundColor: colors.secondaryContainer,
@@ -65,6 +68,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 24,
     gap: 16,
-    marginBottom: 32,
   },
 });

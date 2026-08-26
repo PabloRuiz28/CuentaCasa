@@ -12,7 +12,7 @@ type ScreenProps = {
 
 export const Screen = ({
   children,
-  edges = ["top", "left", "right"],
+  edges = ["top", "left", "right", "bottom"],
   style,
   contentStyle,
 }: ScreenProps) => {

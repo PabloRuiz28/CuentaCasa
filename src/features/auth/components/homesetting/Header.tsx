@@ -1,10 +1,10 @@
+import { View } from "react-native";
 import { Text, useTheme } from "react-native-paper";
 
 export const Header = () => {
   const { colors } = useTheme();
-
   return (
-    <>
+    <View style={{ marginBottom: 32, gap: 8 }}>
       <Text variant="headlineMedium">Configura tu Hogar</Text>
       <Text
         variant="bodyLarge"
@@ -12,6 +12,6 @@ export const Header = () => {
       >
         Elige cómo deseas comenzar tu experiencia financiera
       </Text>
-    </>
+    </View>
   );
 };

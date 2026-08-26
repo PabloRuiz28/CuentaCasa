@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { Button, Divider } from "react-native-paper";
+import { Button } from "react-native-paper";
 
 type FooterProps = {
   backNavFn: () => void;
@@ -9,8 +9,6 @@ type FooterProps = {
 export const Footer = ({ backNavFn, homeSettingNavFn }: FooterProps) => {
   return (
     <View style={{ gap: 16 }}>
-      <Divider />
-
       <Button
         onPress={homeSettingNavFn}
         style={{ borderRadius: 100, marginTop: 24 }}

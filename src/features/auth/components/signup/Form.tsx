@@ -79,21 +79,24 @@ export const Form = () => {
             <Chip
               icon={() =>
                 aporte === aporteSeleccionado ? (
-                  <Icon source="check" size={16} color="white" />
+                  <Icon source="check" size={16} color={colors.primary} />
                 ) : null
               }
               style={{
                 backgroundColor:
                   aporte === aporteSeleccionado
-                    ? colors.primary
+                    ? colors.primaryContainer
                     : "transparent",
                 borderColor:
                   aporte === aporteSeleccionado
                     ? "transparent"
-                    : colors.backdrop,
+                    : colors.outlineVariant,
               }}
               textStyle={{
-                color: aporte === aporteSeleccionado ? "white" : "black",
+                color:
+                  aporte === aporteSeleccionado
+                    ? colors.primary
+                    : colors.onSurfaceVariant,
               }}
               selected={aporte === aporteSeleccionado}
               onPress={() => setAporteSeleccionado(aporte)}
