@@ -11,8 +11,8 @@ export const Header = () => {
         marginBottom: isLandscape ? 0 : 32,
       }}
     >
-      <Text variant="headlineLarge">Bienvenido de nuevo</Text>
-      <Text variant="titleMedium">
+      <Text variant="headlineMedium">Bienvenido de nuevo</Text>
+      <Text variant="bodyLarge">
         Controla las finanzas de tu hogar en pareja
       </Text>
     </View>

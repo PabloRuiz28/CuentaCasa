@@ -5,11 +5,9 @@ import { Screen } from "../../../shared/components/Screen";
 import { Footer } from "../components/signup/Footer";
 import { Form } from "../components/signup/Form";
 import { useResponsive } from "../../../shared/hooks/useResponsive";
-import { useAuth } from "../context/AuthContext";
 
 export const SignUpScreen = () => {
   const { isTablet, isLandscape } = useResponsive();
-  const { signIn } = useAuth();
   const navigation = useNavigation();
 
   return (
@@ -20,23 +18,17 @@ export const SignUpScreen = () => {
         margin: "auto",
       }}
     >
-      <KeyboardAwareScrollView
-        contentContainerStyle={{
-          flexGrow: 1,
-          justifyContent: "center",
-        }}
-        showsVerticalScrollIndicator={false}
-      >
-        <Text variant="headlineSmall" style={{ marginBottom: 24 }}>
+      <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
+        <Text variant="headlineMedium" style={{ marginBottom: 24 }}>
           Registra tus datos para configurar tu hogar financiero
         </Text>
 
         <Form />
 
         <Footer
-          signIn={signIn}
-          navigate={() =>
-            navigation.navigate("AuthPattern", { screen: "SignIn" })
+          backNavFn={navigation.goBack}
+          homeSettingNavFn={() =>
+            navigation.navigate("AuthPattern", { screen: "HomeSetting" })
           }
         />
       </KeyboardAwareScrollView>

@@ -14,11 +14,7 @@ export const Form = () => {
           placeholder="ejemplo@correo.com"
           style={{ height: 65 }}
           outlineStyle={{ borderRadius: 20 }}
-          left={
-            <TextInput.Icon
-              icon={require("../../../../../assets/icons/alternate_email.png")}
-            />
-          }
+          left={<TextInput.Icon icon="email" />}
         />
       </View>
 
@@ -30,16 +26,8 @@ export const Form = () => {
           placeholder="********"
           style={{ height: 65 }}
           outlineStyle={{ borderRadius: 20 }}
-          left={
-            <TextInput.Icon
-              icon={require("../../../../../assets/icons/lock.png")}
-            />
-          }
-          right={
-            <TextInput.Icon
-              icon={require("../../../../../assets/icons/visibility.png")}
-            />
-          }
+          left={<TextInput.Icon icon="lock" />}
+          right={<TextInput.Icon icon="eye" />}
         />
       </View>
 

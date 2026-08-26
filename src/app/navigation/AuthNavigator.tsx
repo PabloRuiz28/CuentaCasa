@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AuthStackParamList } from "./types";
 import { SignInScreen } from "../../features/auth/screens/SignInScreen";
 import { SignUpScreen } from "../../features/auth/screens/SignUpScreen";
+import { HomeSettingScreen } from "../../features/auth/screens/HomeSettingScreen";
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
@@ -17,6 +18,12 @@ export const AuthNavigator = () => {
         options={{ headerTitle: "" }}
         name="SignUp"
         component={SignUpScreen}
+      />
+
+      <Stack.Screen
+        options={{ headerTitle: "" }}
+        name="HomeSetting"
+        component={HomeSettingScreen}
       />
     </Stack.Navigator>
   );
