@@ -5,6 +5,7 @@ export type AuthStackParamList = {
   SignUp: undefined;
   HomeSetting: undefined;
   NewHome: undefined;
+  JoinHome: undefined;
 };
 
 export type MainTabParamList = {

@@ -21,7 +21,7 @@ export const HomeSettingScreen = () => {
     if (settingSelected.homeType === "NEW") {
       navigation.navigate("AuthPattern", { screen: "NewHome" });
     } else {
-      throw new Error("Screen not implement");
+      navigation.navigate("AuthPattern", { screen: "JoinHome" });
     }
   };
 
