@@ -26,3 +26,12 @@ export const useResponsive = (): ResponsiveInfo => {
     [width, height],
   );
 };
+
+export const useResponsiveContentStyle = () => {
+  const { isTablet, isLandscape } = useResponsive();
+  return {
+    width: isLandscape ? "60%" : isTablet ? "80%" : "100%",
+    maxHeight: isLandscape ? "100%" : isTablet ? "70%" : "auto",
+    margin: "auto",
+  } as const;
+};

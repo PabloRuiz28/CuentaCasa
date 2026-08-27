@@ -1,15 +1,11 @@
 import { View } from "react-native";
-import { Text, useTheme } from "react-native-paper";
+import { Text } from "react-native-paper";
 
 export const Header = () => {
-  const { colors } = useTheme();
   return (
     <View style={{ marginBottom: 32, gap: 8 }}>
       <Text variant="headlineMedium">Configura tu Hogar</Text>
-      <Text
-        variant="bodyLarge"
-        style={{ color: colors.inverseSurface, marginBottom: 48 }}
-      >
+      <Text variant="bodyLarge" style={{ marginBottom: 48 }}>
         Elige cómo deseas comenzar tu experiencia financiera
       </Text>
     </View>

@@ -3,6 +3,7 @@ import { HomeSettingScreen } from "../../features/auth/screens/HomeSettingScreen
 import { SignInScreen } from "../../features/auth/screens/SignInScreen";
 import { SignUpScreen } from "../../features/auth/screens/SignUpScreen";
 import { AuthStackParamList } from "./types";
+import { NewHomeScreen } from "../../features/auth/screens/NewHomeScreen";
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
@@ -12,6 +13,7 @@ export const AuthNavigator = () => {
       <Stack.Screen name="SignIn" component={SignInScreen} />
       <Stack.Screen name="SignUp" component={SignUpScreen} />
       <Stack.Screen name="HomeSetting" component={HomeSettingScreen} />
+      <Stack.Screen name="NewHome" component={NewHomeScreen} />
     </Stack.Navigator>
   );
 };
