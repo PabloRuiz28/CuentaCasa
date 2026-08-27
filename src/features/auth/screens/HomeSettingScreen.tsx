@@ -1,16 +1,17 @@
-import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { ScrollView, View } from "react-native";
-import { Button } from "react-native-paper";
 import { Screen } from "../../../shared/components/Screen";
 import { useResponsiveContentStyle } from "../../../shared/hooks/useResponsive";
 import { Header } from "../components/homesetting/Header";
 import { OptionCard } from "../components/homesetting/OptionCard";
 import { HOME_OPTIONS } from "../constants";
 import { IHomeSetting } from "../types";
+import { AuthScreenProps } from "../../../app/navigation/types";
+import { PrimaryButton } from "../../../shared/components/PrimaryButton";
 
-export const HomeSettingScreen = () => {
-  const navigation = useNavigation();
+export const HomeSettingScreen = ({
+  navigation,
+}: AuthScreenProps<"HomeSetting">) => {
   const { width, maxHeight, margin } = useResponsiveContentStyle();
 
   const [settingSelected, setSettingSelected] = useState<IHomeSetting>(
@@ -19,9 +20,9 @@ export const HomeSettingScreen = () => {
 
   const navigateTo = () => {
     if (settingSelected.homeType === "NEW") {
-      navigation.navigate("AuthPattern", { screen: "NewHome" });
+      navigation.navigate("NewHome");
     } else {
-      navigation.navigate("AuthPattern", { screen: "JoinHome" });
+      navigation.navigate("JoinHome");
     }
   };
 
@@ -43,14 +44,9 @@ export const HomeSettingScreen = () => {
           ))}
         </View>
 
-        <Button
-          onPress={navigateTo}
-          style={{ borderRadius: 100, marginTop: 64 }}
-          contentStyle={{ height: 55 }}
-          mode="contained"
-        >
+        <PrimaryButton onPress={navigateTo} style={{ marginTop: 64 }}>
           Continuar
-        </Button>
+        </PrimaryButton>
       </ScrollView>
     </Screen>
   );

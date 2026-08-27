@@ -31,7 +31,7 @@ export const useResponsiveContentStyle = () => {
   const { isTablet, isLandscape } = useResponsive();
   return {
     width: isLandscape ? "60%" : isTablet ? "80%" : "100%",
-    maxHeight: isLandscape ? "100%" : isTablet ? "70%" : "auto",
+    maxHeight: isLandscape ? "100%" : isTablet ? "70%" : undefined,
     margin: "auto",
   } as const;
 };

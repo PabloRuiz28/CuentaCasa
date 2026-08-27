@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Chip, Icon, Text, TextInput, useTheme } from "react-native-paper";
-
-type Frecuencia = "Semanal" | "Catorcenal" | "Quincenal";
+import { FormTextInput } from "../../../../shared/components/FormTextInput";
+import { Frecuencia } from "../../types";
 
 export const Form = () => {
   const { colors } = useTheme();
@@ -15,22 +15,16 @@ export const Form = () => {
       <View style={{ flexDirection: "row", gap: 16, marginBottom: 24 }}>
         <View style={[styles.inputContainer, { flex: 1 }]}>
           <Text variant="bodySmall">Nombre(s)</Text>
-          <TextInput
-            mode="outlined"
+          <FormTextInput
             placeholder="Jhon"
-            style={styles.formStyle}
-            outlineStyle={styles.formOutlineStyle}
             left={<TextInput.Icon icon="account" />}
           />
         </View>
 
         <View style={[styles.inputContainer, { flex: 1 }]}>
           <Text variant="bodySmall">Apellido(s)</Text>
-          <TextInput
-            mode="outlined"
+          <FormTextInput
             placeholder="Doe"
-            style={styles.formStyle}
-            outlineStyle={styles.formOutlineStyle}
             left={<TextInput.Icon icon="account" />}
           />
         </View>
@@ -38,23 +32,17 @@ export const Form = () => {
 
       <View style={[styles.inputContainer, { marginBottom: 24 }]}>
         <Text>Correo electrónico</Text>
-        <TextInput
-          mode="outlined"
+        <FormTextInput
           placeholder="ejemplo@correo.com"
-          style={styles.formStyle}
-          outlineStyle={styles.formOutlineStyle}
           left={<TextInput.Icon icon="email" />}
         />
       </View>
 
       <View style={[styles.inputContainer, { marginBottom: 24 }]}>
         <Text>Contraseña</Text>
-        <TextInput
-          mode="outlined"
+        <FormTextInput
           secureTextEntry
           placeholder="************"
-          style={styles.formStyle}
-          outlineStyle={styles.formOutlineStyle}
           left={<TextInput.Icon icon="lock" />}
           right={<TextInput.Icon icon="eye" />}
         />
@@ -62,12 +50,9 @@ export const Form = () => {
 
       <View style={[styles.inputContainer, { marginBottom: 24 }]}>
         <Text>Monto base incial</Text>
-        <TextInput
+        <FormTextInput
           inputMode="numeric"
-          mode="outlined"
           placeholder="$0.00"
-          style={styles.formStyle}
-          outlineStyle={styles.formOutlineStyle}
           left={<TextInput.Icon icon="cash" />}
         />
       </View>
@@ -113,12 +98,5 @@ export const Form = () => {
 const styles = StyleSheet.create({
   inputContainer: {
     gap: 12,
-  },
-  formStyle: {
-    height: 65,
-  },
-
-  formOutlineStyle: {
-    borderRadius: 20,
   },
 });

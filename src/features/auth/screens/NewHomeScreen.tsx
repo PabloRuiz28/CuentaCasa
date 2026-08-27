@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { ScrollView } from "react-native";
-import { Button, Text } from "react-native-paper";
+import { Text } from "react-native-paper";
 import { Screen } from "../../../shared/components/Screen";
 import { useResponsiveContentStyle } from "../../../shared/hooks/useResponsive";
 import { Header } from "../components/newhome/Header";
 import { SharedHomeCode } from "../components/newhome/SharedHomeCode";
 import { useAuth } from "../context/AuthContext";
+import { PrimaryButton } from "../../../shared/components/PrimaryButton";
 
 export const NewHomeScreen = () => {
   const { signIn } = useAuth();
@@ -33,14 +34,7 @@ export const NewHomeScreen = () => {
           aplicación.
         </Text>
 
-        <Button
-          mode="contained"
-          style={{ borderRadius: 100 }}
-          contentStyle={{ height: 55 }}
-          onPress={signIn}
-        >
-          Continuar al Dashboard
-        </Button>
+        <PrimaryButton onPress={signIn}>Continuar al Dashboard</PrimaryButton>
       </ScrollView>
     </Screen>
   );

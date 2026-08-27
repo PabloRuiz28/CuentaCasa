@@ -1,5 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import { Icon, Surface, Text, TextInput, useTheme } from "react-native-paper";
+import { FormTextInput } from "../../../../shared/components/FormTextInput";
 
 export const AddCode = () => {
   const { colors } = useTheme();
@@ -9,11 +10,8 @@ export const AddCode = () => {
       <View style={styles.container}>
         <Text style={{ color: colors.primary }}>Código de invitación</Text>
 
-        <TextInput
-          mode="outlined"
+        <FormTextInput
           placeholder="Ej: HOGAR-880"
-          style={{ height: 65 }}
-          outlineStyle={{ borderRadius: 20 }}
           left={<TextInput.Icon icon="key" />}
         />
       </View>

@@ -1,14 +1,13 @@
-import { useNavigation } from "@react-navigation/native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
 import { Text } from "react-native-paper";
 import { Screen } from "../../../shared/components/Screen";
 import { useResponsiveContentStyle } from "../../../shared/hooks/useResponsive";
 import { Footer } from "../components/signup/Footer";
 import { Form } from "../components/signup/Form";
+import { AuthScreenProps } from "../../../app/navigation/types";
 
-export const SignUpScreen = () => {
+export const SignUpScreen = ({ navigation }: AuthScreenProps<"SignUp">) => {
   const { width, maxHeight, margin } = useResponsiveContentStyle();
-  const navigation = useNavigation();
 
   return (
     <Screen
@@ -23,9 +22,7 @@ export const SignUpScreen = () => {
 
         <Footer
           backNavFn={navigation.goBack}
-          homeSettingNavFn={() =>
-            navigation.navigate("AuthPattern", { screen: "HomeSetting" })
-          }
+          homeSettingNavFn={() => navigation.navigate("HomeSetting")}
         />
       </KeyboardAwareScrollView>
     </Screen>

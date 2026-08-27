@@ -1,22 +1,16 @@
-import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
 import { useAuth } from "../../context/AuthContext";
+import { useAuthNavigation } from "../../../../app/navigation/hooks";
+import { PrimaryButton } from "../../../../shared/components/PrimaryButton";
 
 export const Actions = () => {
   const { signIn } = useAuth();
-  const navigation = useNavigation();
+  const navigation = useAuthNavigation();
 
   return (
     <View style={styles.btnsContainer}>
-      <Button
-        mode="contained"
-        style={{ borderRadius: 100 }}
-        contentStyle={{ height: 55 }}
-        onPress={signIn}
-      >
-        Unirme al Hogar
-      </Button>
+      <PrimaryButton onPress={signIn}>Unirme al Hogar</PrimaryButton>
 
       <Button onPress={() => navigation.goBack()}>Regresar</Button>
     </View>

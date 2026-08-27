@@ -1,5 +1,6 @@
 import { View } from "react-native";
 import { Button } from "react-native-paper";
+import { PrimaryButton } from "../../../../shared/components/PrimaryButton";
 
 type FooterProps = {
   backNavFn: () => void;
@@ -9,14 +10,12 @@ type FooterProps = {
 export const Footer = ({ backNavFn, homeSettingNavFn }: FooterProps) => {
   return (
     <View style={{ gap: 16 }}>
-      <Button
+      <PrimaryButton
         onPress={homeSettingNavFn}
-        style={{ borderRadius: 100, marginTop: 24 }}
-        contentStyle={{ height: 55 }}
-        mode="contained"
+        style={{ marginTop: 24 }}
       >
         Crear Hogar
-      </Button>
+      </PrimaryButton>
 
       <Button onPress={backNavFn}>
         ¿Ya tienes cuenta? Inicia sesión aquí?

@@ -1,6 +1,8 @@
 import { StyleSheet, View } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
 import { useAuth } from "../../context/AuthContext";
+import { FormTextInput } from "../../../../shared/components/FormTextInput";
+import { PrimaryButton } from "../../../../shared/components/PrimaryButton";
 
 export const Form = () => {
   const { signIn } = useAuth();
@@ -9,23 +11,17 @@ export const Form = () => {
     <View style={styles.form}>
       <View style={{ gap: 8 }}>
         <Text>Correo electrónico</Text>
-        <TextInput
-          mode="outlined"
+        <FormTextInput
           placeholder="ejemplo@correo.com"
-          style={{ height: 65 }}
-          outlineStyle={{ borderRadius: 20 }}
           left={<TextInput.Icon icon="email" />}
         />
       </View>
 
       <View style={{ gap: 8 }}>
         <Text>Contraseña</Text>
-        <TextInput
-          mode="outlined"
+        <FormTextInput
           secureTextEntry
           placeholder="********"
-          style={{ height: 65 }}
-          outlineStyle={{ borderRadius: 20 }}
           left={<TextInput.Icon icon="lock" />}
           right={<TextInput.Icon icon="eye" />}
         />
@@ -35,14 +31,7 @@ export const Form = () => {
         ¿Olvidaste tu contraseña?
       </Button>
 
-      <Button
-        style={{ borderRadius: 100 }}
-        contentStyle={{ height: 55 }}
-        onPress={signIn}
-        mode="contained"
-      >
-        Iniciar Sesión
-      </Button>
+      <PrimaryButton onPress={signIn}>Iniciar Sesión</PrimaryButton>
     </View>
   );
 };

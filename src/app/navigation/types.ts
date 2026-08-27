@@ -1,4 +1,5 @@
 import { NavigatorScreenParams } from "@react-navigation/native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 export type AuthStackParamList = {
   SignIn: undefined;
@@ -22,6 +23,9 @@ export type RootStackParamList = {
   AuthPattern: NavigatorScreenParams<AuthStackParamList>;
   MainPattern: NavigatorScreenParams<MainStackParamList>;
 };
+
+export type AuthScreenProps<T extends keyof AuthStackParamList> =
+  NativeStackScreenProps<AuthStackParamList, T>;
 
 declare global {
   namespace ReactNavigation {
