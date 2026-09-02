@@ -1,7 +1,6 @@
 import {
   MD3DarkTheme,
   MD3LightTheme,
-  MD3Theme,
   configureFonts,
 } from "react-native-paper";
 import {
@@ -9,11 +8,34 @@ import {
   DarkTheme as NavDarkTheme,
 } from "@react-navigation/native";
 
+const fontFamily = {
+  regular: "Inter_400Regular",
+  medium: "Inter_500Medium",
+};
+
+const fontConfig = {
+  displayLarge: { fontFamily: fontFamily.regular },
+  displayMedium: { fontFamily: fontFamily.regular },
+  displaySmall: { fontFamily: fontFamily.regular },
+  headlineLarge: { fontFamily: fontFamily.regular },
+  headlineMedium: { fontFamily: fontFamily.regular },
+  headlineSmall: { fontFamily: fontFamily.regular },
+  titleLarge: { fontFamily: fontFamily.regular },
+  titleMedium: { fontFamily: fontFamily.medium },
+  titleSmall: { fontFamily: fontFamily.medium },
+  bodyLarge: { fontFamily: fontFamily.regular },
+  bodyMedium: { fontFamily: fontFamily.regular },
+  bodySmall: { fontFamily: fontFamily.regular },
+  labelLarge: { fontFamily: fontFamily.medium },
+  labelMedium: { fontFamily: fontFamily.medium },
+  labelSmall: { fontFamily: fontFamily.medium },
+};
+
+const fonts = configureFonts({ config: fontConfig });
+
 export const darkTheme = {
   ...MD3DarkTheme,
-  fonts: configureFonts({
-    isV3: true,
-  }),
+  fonts,
   colors: {
     ...MD3DarkTheme.colors,
     primary: "#AFC6FF",
@@ -70,9 +92,7 @@ export const darkTheme = {
 
 export const lightTheme = {
   ...MD3LightTheme,
-  fonts: configureFonts({
-    isV3: true,
-  }),
+  fonts,
   colors: {
     ...MD3LightTheme.colors,
     primary: "#465D91",
