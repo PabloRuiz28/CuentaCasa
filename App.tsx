@@ -2,8 +2,8 @@ import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from "react-native-safe-area-context";
-import { RootNavigator } from "./src/app/navigation/RootNavigator";
-import { AppProviders } from "./src/app/providers/AppProviders";
+import { RootNavigator } from "./src/bootstrap/navigation/RootNavigator";
+import { AppProviders } from "./src/bootstrap/providers/AppProviders";
 
 export default function App() {
   return (
