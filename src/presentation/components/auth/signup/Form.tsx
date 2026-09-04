@@ -1,38 +1,39 @@
-import { StyleSheet, View } from "react-native";
-import { Text, TextInput } from "react-native-paper";
 import { FormTextInput } from "@presentation/components/FormTextInput";
+import { PrimaryButton } from "@presentation/components/PrimaryButton";
+import { View } from "react-native";
+import { Text, TextInput } from "react-native-paper";
 
 export const Form = () => {
   return (
-    <>
-      <View style={{ flexDirection: "row", gap: 16, marginBottom: 24 }}>
-        <View style={[styles.inputContainer, { flex: 1 }]}>
-          <Text variant="bodySmall">Nombre(s)</Text>
+    <View className="flex-1 py-12">
+      <View className="flex-row gap-4 mb-8">
+        <View className="flex-1 gap-4">
+          <Text variant="bodyMedium">Nombre(s)</Text>
           <FormTextInput
             placeholder="Jhon"
             left={<TextInput.Icon icon="account" />}
           />
         </View>
 
-        <View style={[styles.inputContainer, { flex: 1 }]}>
-          <Text variant="bodySmall">Apellido(s)</Text>
+        <View className="flex-1 gap-4">
+          <Text variant="bodyMedium">Apellido(s)</Text>
           <FormTextInput
-            placeholder="Doe"
+            placeholder="Jhon"
             left={<TextInput.Icon icon="account" />}
           />
         </View>
       </View>
 
-      <View style={[styles.inputContainer, { marginBottom: 24 }]}>
-        <Text>Correo electrónico</Text>
+      <View className="gap-4 mb-8">
+        <Text variant="bodyMedium">Correo electrónico</Text>
         <FormTextInput
           placeholder="ejemplo@correo.com"
           left={<TextInput.Icon icon="email" />}
         />
       </View>
 
-      <View style={[styles.inputContainer, { marginBottom: 24 }]}>
-        <Text>Contraseña</Text>
+      <View className="gap-4 mb-16">
+        <Text variant="bodyMedium">Contraseña</Text>
         <FormTextInput
           secureTextEntry
           placeholder="************"
@@ -40,12 +41,8 @@ export const Form = () => {
           right={<TextInput.Icon icon="eye" />}
         />
       </View>
-    </>
+
+      <PrimaryButton>Continuar</PrimaryButton>
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  inputContainer: {
-    gap: 12,
-  },
-});

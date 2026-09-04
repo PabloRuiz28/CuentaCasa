@@ -5,6 +5,7 @@ import { useResponsiveContentStyle } from "@presentation/hooks/useResponsive";
 import { Footer } from "@presentation/components/auth/signup/Footer";
 import { Form } from "@presentation/components/auth/signup/Form";
 import { AuthScreenProps } from "@bootstrap/navigation/types";
+import { View } from "react-native";
 
 export const SignUpScreen = ({ navigation }: AuthScreenProps<"SignUp">) => {
   const { width, maxHeight, margin } = useResponsiveContentStyle();
@@ -13,17 +14,19 @@ export const SignUpScreen = ({ navigation }: AuthScreenProps<"SignUp">) => {
     <Screen
       contentStyle={{ width: width, maxHeight: maxHeight, margin: margin }}
     >
-      <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
-        <Text variant="headlineMedium" style={{ marginBottom: 32 }}>
-          Registra tus datos para configurar tu hogar financiero
-        </Text>
+      <KeyboardAwareScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        showsVerticalScrollIndicator={false}
+      >
+        <View className="flex-1 justify-between py-8">
+          <Text variant="headlineMedium">
+            Registra tus datos para configurar tu hogar financiero
+          </Text>
 
-        <Form />
+          <Form />
 
-        <Footer
-          backNavFn={navigation.goBack}
-          homeSettingNavFn={() => navigation.navigate("HomeSetting")}
-        />
+          <Footer backNavFn={navigation.goBack} />
+        </View>
       </KeyboardAwareScrollView>
     </Screen>
   );
