@@ -13,7 +13,7 @@ export const FormTextInput = ({
     <TextInput
       mode={mode}
       style={[{ height: 65 }, style]}
-      outlineStyle={[{ borderRadius: 20 }, outlineStyle]}
+      outlineStyle={[{ borderRadius: 100 }, outlineStyle]}
       {...rest}
     />
   );

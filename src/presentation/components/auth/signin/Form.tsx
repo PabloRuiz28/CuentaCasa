@@ -8,17 +8,16 @@ export const Form = () => {
   const { signIn } = useAuth();
 
   return (
-    <View style={styles.form}>
-      <View style={{ gap: 8 }}>
-        <Text>Correo electrónico</Text>
+    <View className="flex-1 py-12">
+      <View className="gap-4 mb-8">
+        <Text variant="bodyMedium">Correo electrónico</Text>
         <FormTextInput
           placeholder="ejemplo@correo.com"
           left={<TextInput.Icon icon="email" />}
         />
       </View>
-
-      <View style={{ gap: 8 }}>
-        <Text>Contraseña</Text>
+      <View className="gap-4 mb-8">
+        <Text variant="bodyMedium">Contraseña</Text>
         <FormTextInput
           secureTextEntry
           placeholder="********"
@@ -37,13 +36,8 @@ export const Form = () => {
 };
 
 const styles = StyleSheet.create({
-  form: {
-    flex: 1,
-    gap: 32,
-    paddingVertical: 16,
-  },
-
   forgetPassword: {
     alignSelf: "flex-end",
+    marginBottom: 16,
   },
 });
