@@ -7,11 +7,13 @@ import { OptionCard } from "@presentation/components/auth/homesetting/OptionCard
 import { HOME_OPTIONS, IHomeSetting } from "@core/constants/homeOptions";
 import { AuthScreenProps } from "@bootstrap/navigation/types";
 import { PrimaryButton } from "@presentation/components/PrimaryButton";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export const HomeSettingScreen = ({
   navigation,
 }: AuthScreenProps<"HomeSetting">) => {
   const { width, maxHeight, margin } = useResponsiveContentStyle();
+  const insets = useSafeAreaInsets();
 
   const [settingSelected, setSettingSelected] = useState<IHomeSetting>(
     HOME_OPTIONS[0],
@@ -29,23 +31,27 @@ export const HomeSettingScreen = ({
     <Screen
       contentStyle={{ width: width, maxHeight: maxHeight, margin: margin }}
     >
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Header />
-
-        <View style={{ gap: 32 }}>
-          {HOME_OPTIONS.map((setting) => (
-            <OptionCard
-              key={setting.homeType}
-              setting={setting}
-              isSelected={setting.homeType === settingSelected.homeType}
-              onSelect={setSettingSelected}
-            />
-          ))}
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        showsVerticalScrollIndicator={false}
+      >
+        <View
+          className="flex-1 justify-between"
+          style={{ paddingBottom: insets.bottom }}
+        >
+          <View className="gap-8">
+            <Header />
+            {HOME_OPTIONS.map((setting) => (
+              <OptionCard
+                key={setting.homeType}
+                setting={setting}
+                isSelected={setting.homeType === settingSelected.homeType}
+                onSelect={setSettingSelected}
+              />
+            ))}
+          </View>
+          <PrimaryButton onPress={navigateTo}>Continuar</PrimaryButton>
         </View>
-
-        <PrimaryButton onPress={navigateTo} style={{ marginTop: 64 }}>
-          Continuar
-        </PrimaryButton>
       </ScrollView>
     </Screen>
   );

@@ -18,6 +18,7 @@ export const OptionCard = ({
   return (
     <TouchableRipple
       onPress={() => onSelect(setting)}
+      className="mb-2"
       style={[
         {
           borderColor: colors.outline,
