@@ -2,7 +2,12 @@ import { StyleSheet, View } from "react-native";
 import { Icon, Surface, Text, TextInput, useTheme } from "react-native-paper";
 import { FormTextInput } from "@presentation/components/FormTextInput";
 
-export const AddCode = () => {
+type AddCodeProps = {
+  value: string;
+  onChangeText: (text: string) => void;
+};
+
+export const AddCode = ({ value, onChangeText }: AddCodeProps) => {
   const { colors } = useTheme();
 
   return (
@@ -13,6 +18,9 @@ export const AddCode = () => {
         <FormTextInput
           placeholder="Ej: HOGAR-880"
           left={<TextInput.Icon icon="key" />}
+          value={value}
+          onChangeText={onChangeText}
+          autoCapitalize="characters"
         />
       </View>
 

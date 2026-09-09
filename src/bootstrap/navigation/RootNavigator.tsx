@@ -7,12 +7,8 @@ import { useAuth } from "@presentation/context/AuthContext";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-type RootNavigationProps = {
-  isLoading?: boolean;
-};
-
-export const RootNavigator = ({ isLoading = false }: RootNavigationProps) => {
-  const { isAuth } = useAuth();
+export const RootNavigator = () => {
+  const { isAuth, isLoading } = useAuth();
 
   if (isLoading) {
     return (

@@ -5,13 +5,46 @@ import { Screen } from "@presentation/components/Screen";
 import { useResponsiveContentStyle } from "@presentation/hooks/useResponsive";
 import { Header } from "@presentation/components/auth/newhome/Header";
 import { SharedHomeCode } from "@presentation/components/auth/newhome/SharedHomeCode";
+import { CreateForm } from "@presentation/components/auth/newhome/CreateForm";
 import { useAuth } from "@presentation/context/AuthContext";
+import { useCreateHousehold } from "@presentation/hooks/useCreateHousehold";
 import { PrimaryButton } from "@presentation/components/PrimaryButton";
+import { Household } from "@domain/entities/Household";
+import { Frecuencia } from "@domain/types";
 
 export const NewHomeScreen = () => {
-  const { signIn } = useAuth();
+  const { user, completeOnboarding } = useAuth();
+  const { createHousehold, isLoading, error } = useCreateHousehold();
   const { width, maxHeight, margin } = useResponsiveContentStyle();
-  const [homeCode, setHomeCode] = useState<string>("HOGAR-880");
+  const [household, setHousehold] = useState<Household | null>(null);
+
+  const handleCreate = async (baseAmount: number, frequency: Frecuencia) => {
+    if (!user) return;
+
+    const created = await createHousehold({
+      createdByUserId: user.id,
+      baseAmount,
+      contributionFrequency: frequency,
+    });
+
+    if (created) {
+      setHousehold(created);
+    }
+  };
+
+  if (!household) {
+    return (
+      <Screen
+        contentStyle={{ width: width, maxHeight: maxHeight, margin: margin }}
+      >
+        <CreateForm
+          onCreate={handleCreate}
+          isLoading={isLoading}
+          error={error}
+        />
+      </Screen>
+    );
+  }
 
   return (
     <Screen
@@ -27,14 +60,16 @@ export const NewHomeScreen = () => {
       >
         <Header />
 
-        <SharedHomeCode homeCode={homeCode} />
+        <SharedHomeCode homeCode={household.code} />
 
         <Text variant="bodyLarge" style={{ textAlign: "center" }}>
           Tu cónyuge podrá ingresar este código al momento de registrarse en la
           aplicación.
         </Text>
 
-        <PrimaryButton onPress={signIn}>Continuar al Dashboard</PrimaryButton>
+        <PrimaryButton onPress={completeOnboarding}>
+          Continuar al Dashboard
+        </PrimaryButton>
       </ScrollView>
     </Screen>
   );

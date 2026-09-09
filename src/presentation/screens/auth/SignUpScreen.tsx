@@ -17,13 +17,14 @@ export const SignUpScreen = ({ navigation }: AuthScreenProps<"SignUp">) => {
       <KeyboardAwareScrollView
         contentContainerStyle={{ flexGrow: 1 }}
         showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="always"
       >
         <View className="flex-1 justify-between py-8">
           <Text variant="headlineMedium">
             Registra tus datos para configurar tu hogar financiero
           </Text>
 
-          <Form />
+          <Form onSuccess={() => navigation.navigate("HomeSetting")} />
 
           <Footer backNavFn={navigation.goBack} />
         </View>

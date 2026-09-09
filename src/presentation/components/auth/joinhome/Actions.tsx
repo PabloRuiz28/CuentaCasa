@@ -1,16 +1,21 @@
 import { StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
-import { useAuth } from "@presentation/context/AuthContext";
 import { useAuthNavigation } from "@bootstrap/navigation/hooks";
 import { PrimaryButton } from "@presentation/components/PrimaryButton";
 
-export const Actions = () => {
-  const { signIn } = useAuth();
+type ActionsProps = {
+  onJoin: () => void;
+  isLoading: boolean;
+};
+
+export const Actions = ({ onJoin, isLoading }: ActionsProps) => {
   const navigation = useAuthNavigation();
 
   return (
     <View style={styles.btnsContainer}>
-      <PrimaryButton onPress={signIn}>Unirme al Hogar</PrimaryButton>
+      <PrimaryButton onPress={onJoin} loading={isLoading}>
+        Unirme al Hogar
+      </PrimaryButton>
 
       <Button onPress={() => navigation.goBack()}>Regresar</Button>
     </View>
